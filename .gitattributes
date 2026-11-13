@@ -1,0 +1,3 @@
+# Keep one line-ending everywhere: these are code and docs consumed by Node and by
+# YAML parsers, and a CRLF checkout changes nothing but makes every diff noisy.
+* text=auto eol=lf
