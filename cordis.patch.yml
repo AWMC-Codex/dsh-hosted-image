@@ -1,0 +1,27 @@
+# Mount dsh-hosted-image into the DSH loader tree.
+#
+# `name` must be the real package name, because the loader resolves it through
+# the profile's node_modules; `id` is only this entry's identity inside the
+# loader tree.
+#
+# Fill in baseURL and model for the deployment you point at. Keep the main key
+# in the credential store: `apiKeyEnv` names a stored credential reference (see
+# README > Configure). `apiKeyFile` exists as a last-resort fallback for a
+# throwaway test deployment and should stay empty in normal use.
+- insert:
+    - id: dsh-hosted-image
+      name: dsh-hosted-image
+      config:
+        # …/v1 of a sub2api deployment that runs with
+        # SUB2API_HOSTED_IMAGE_TOOLS_ENABLED=true.
+        baseURL: https://api.example.com/v1
+        # The main model that drives the parent Responses turn.
+        model: example-main-model
+        # Credential reference holding the *main* key. The image key is never
+        # used here: it stays server-side, bound to the main key on the Keys page.
+        apiKeyEnv: HOSTED_IMAGE_API_KEY
+        # Optional overrides:
+        # apiKeyFile: ""            # last-resort key file; leave empty normally
+        # outputDir: generated-images  # sub-directory of the session cwd for the visible copy
+        # size: 1024x1024            # 1024x1024 | 2048x2048 | 4096x4096
+        # timeoutMs: 270000          # stay under the server's 4-minute accepted operation

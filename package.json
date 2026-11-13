@@ -1,0 +1,50 @@
+{
+  "name": "dsh-hosted-image",
+  "version": "0.1.0",
+  "description": "DSH tool: generate one image through a sub2api hosted-image Responses endpoint tthe hosted image contract contract) and hand it back as a real image block.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./hosted": "./hosted.js",
+    "./tool": "./tool.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "hosted.js",
+    "index.js",
+    "tool.js",
+    "README.md",
+    "LICENSE",
+    "test/"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "image-generation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AWMC-Codex/dsh-hosted-image.git"
+  },
+  "homepage": "https://github.com/AWMC-Codex/dsh-hosted-image#readme",
+  "bugs": {
+    "url": "https://github.com/AWMC-Codex/dsh-hosted-image/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}
